@@ -1,0 +1,124 @@
+* {
+  box-sizing: border-box;
+}
+
+:root {
+  --green: #246b53;
+  --deep-green: #163f32;
+  --cream: #fffaf0;
+  --mint: #e8f3ec;
+  --gold: #e9a23b;
+  --ink: #20312d;
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+  margin: 0;
+  color: var(--ink);
+  background: var(--cream);
+  font-family: Arial, Helvetica, sans-serif;
+  line-height: 1.6;
+}
+
+.site-header {
+  padding: 2.2rem 5vw;
+  text-align: center;
+  color: white;
+  background: var(--green);
+}
+
+.site-header h1 {
+  margin: .25rem 0 .5rem;
+  font-size: clamp(2rem, 4vw, 3rem);
+  line-height: 1.15;
+}
+
+.site-header p { margin: .4rem auto; max-width: 760px; }
+.eyebrow { font-size: .8rem; letter-spacing: .15em; font-weight: 700; }
+
+main { width: min(1100px, 90vw); margin: 2rem auto 3rem; }
+h2 { margin: 1.7rem 0 .8rem; }
+
+.preview {
+  min-height: 340px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+  padding: 2rem;
+  color: white;
+  text-align: center;
+  font-size: clamp(1.25rem, 2.4vw, 2rem);
+  font-weight: 700;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, .8);
+  background-image: url("images/nature.svg");
+  background-size: cover;
+  background-position: center;
+  border: 5px solid white;
+  border-radius: 1.25rem;
+  box-shadow: 0 10px 26px rgba(25, 55, 42, .16);
+  transition: background-image .2s ease;
+}
+
+.preview::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(16, 35, 28, .18);
+}
+
+.preview { isolation: isolate; }
+.preview::before { z-index: -1; }
+
+.instruction { margin-top: 0; }
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 1rem;
+}
+
+figure {
+  margin: 0;
+  padding: .7rem;
+  background: white;
+  border: 1px solid #d7e3d9;
+  border-radius: 1rem;
+  box-shadow: 0 5px 16px rgba(25, 55, 42, .1);
+}
+
+figure img {
+  display: block;
+  width: 100%;
+  aspect-ratio: 9 / 6;
+  object-fit: cover;
+  padding: 4px;
+  border: 3px solid #dcebe0;
+  border-radius: .65rem;
+  cursor: pointer;
+  transition: transform .2s ease, border-radius .2s ease;
+}
+
+figure:nth-child(even) img { border-radius: 1.5rem .5rem 1.5rem .5rem; }
+figure img:hover, figure img:focus-visible {
+  transform: scale(1.03);
+  outline: 3px solid var(--gold);
+  outline-offset: 3px;
+}
+figcaption { padding: .4rem .15rem .1rem; text-align: center; font-weight: 700; }
+
+footer {
+  padding: 1.2rem 5vw;
+  text-align: center;
+  color: white;
+  background: var(--deep-green);
+}
+
+@media (max-width: 760px) {
+  .gallery { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .preview { min-height: 260px; }
+}
+@media (max-width: 420px) {
+  .gallery { grid-template-columns: 1fr; }
+}

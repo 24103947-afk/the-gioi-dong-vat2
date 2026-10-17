@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Bài thực hành JavaScript: cập nhật ảnh xem trước khi rê chuột và hoàn tác khi rời ảnh.">
+  <title>Image Preview — JavaScript</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <header class="site-header">
+    <p class="eyebrow">BÀI THỰC HÀNH JAVASCRIPT</p>
+    <h1>Khám phá thế giới động vật</h1>
+    <p>Rê chuột hoặc dùng phím Tab để xem ảnh trong khung xem trước.</p>
+  </header>
+
+  <main>
+    <section aria-labelledby="preview-heading">
+      <h2 id="preview-heading">Khung xem trước</h2>
+      <div id="image" class="preview" role="status" aria-live="polite">
+        Di chuột qua một hình ảnh bên dưới để hiển thị ở đây.
+      </div>
+    </section>
+
+    <section aria-labelledby="gallery-heading">
+      <h2 id="gallery-heading">Chọn một hình ảnh</h2>
+      <p class="instruction">Khi bạn đưa chuột lên ảnh, nội dung chữ và ảnh nền sẽ thay đổi. Khi rời ảnh, khung sẽ trở về ban đầu.</p>
+      <div class="gallery">
+        <figure>
+          <img src="images/lion.svg" alt="Sư tử — chúa tể đồng cỏ"
+               onmouseover="update(this)" onmouseout="undo()"
+               onfocus="update(this)" onblur="undo()" tabindex="0">
+          <figcaption>Sư tử</figcaption>
+        </figure>
+        <figure>
+          <img src="images/elephant.svg" alt="Voi — loài động vật có trí nhớ tốt"
+               onmouseover="update(this)" onmouseout="undo()"
+               onfocus="update(this)" onblur="undo()" tabindex="0">
+          <figcaption>Voi</figcaption>
+        </figure>
+        <figure>
+          <img src="images/tiger.svg" alt="Hổ — loài mèo lớn có bộ lông sọc"
+               onmouseover="update(this)" onmouseout="undo()"
+               onfocus="update(this)" onblur="undo()" tabindex="0">
+          <figcaption>Hổ</figcaption>
+        </figure>
+        <figure>
+          <img src="images/fox.svg" alt="Cáo — loài vật nhanh nhẹn và thích nghi tốt"
+               onmouseover="update(this)" onmouseout="undo()"
+               onfocus="update(this)" onblur="undo()" tabindex="0">
+          <figcaption>Cáo</figcaption>
+        </figure>
+      </div>
+    </section>
+  </main>
+
+  <footer><p>Bài thực hành DOM · HTML, CSS và JavaScript</p></footer>
+</body>
+</html>
